@@ -61,7 +61,7 @@ export default function HomePage() {
                   <span className="block xl:inline">Fast & Reliable</span>
                   <span className="block text-primary-600 xl:inline"> Document Services</span>
                 </h1>
-                <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                <p className="mt-3 text-base text-gray-700 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 font-medium">
                   QuickTech helps you process essential documents like Aadhaar, PAN card, driving license, and more. Submit documents online and we'll handle the rest.
                 </p>
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
@@ -244,7 +244,7 @@ export default function HomePage() {
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Why Choose QuickTech
             </p>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            <p className="mt-4 max-w-2xl text-xl text-gray-700 lg:mx-auto font-medium">
               We make document processing simple, fast, and hassle-free.
             </p>
           </div>
