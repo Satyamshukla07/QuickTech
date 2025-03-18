@@ -99,7 +99,7 @@ export default function AuthPage() {
                             name="username"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Username</FormLabel>
+                                <FormLabel className="text-gray-700">Username</FormLabel>
                                 <FormControl>
                                   <Input placeholder="Enter your username" {...field} />
                                 </FormControl>
@@ -113,7 +113,7 @@ export default function AuthPage() {
                             name="password"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Password</FormLabel>
+                                <FormLabel className="text-gray-700">Password</FormLabel>
                                 <FormControl>
                                   <Input type="password" placeholder="Enter your password" {...field} />
                                 </FormControl>
@@ -161,7 +161,7 @@ export default function AuthPage() {
                             name="username"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Username</FormLabel>
+                                <FormLabel className="text-gray-700">Username</FormLabel>
                                 <FormControl>
                                   <Input placeholder="Choose a username" {...field} />
                                 </FormControl>
@@ -175,7 +175,7 @@ export default function AuthPage() {
                             name="name"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Full Name</FormLabel>
+                                <FormLabel className="text-gray-700">Full Name</FormLabel>
                                 <FormControl>
                                   <Input placeholder="Enter your full name" {...field} />
                                 </FormControl>
@@ -189,7 +189,7 @@ export default function AuthPage() {
                             name="email"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Email</FormLabel>
+                                <FormLabel className="text-gray-700">Email</FormLabel>
                                 <FormControl>
                                   <Input type="email" placeholder="Enter your email" {...field} />
                                 </FormControl>
@@ -204,7 +204,7 @@ export default function AuthPage() {
                               name="password"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel>Password</FormLabel>
+                                  <FormLabel className="text-gray-700">Password</FormLabel>
                                   <FormControl>
                                     <Input type="password" placeholder="Create a password" {...field} />
                                   </FormControl>
@@ -218,7 +218,7 @@ export default function AuthPage() {
                               name="confirmPassword"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel>Confirm Password</FormLabel>
+                                  <FormLabel className="text-gray-700">Confirm Password</FormLabel>
                                   <FormControl>
                                     <Input type="password" placeholder="Confirm your password" {...field} />
                                   </FormControl>
@@ -233,7 +233,7 @@ export default function AuthPage() {
                             name="phone"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Phone (Optional)</FormLabel>
+                                <FormLabel className="text-gray-700">Phone (Optional)</FormLabel>
                                 <FormControl>
                                   <Input placeholder="Enter your phone number" {...field} />
                                 </FormControl>
@@ -247,7 +247,7 @@ export default function AuthPage() {
                             name="address"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Address (Optional)</FormLabel>
+                                <FormLabel className="text-gray-700">Address (Optional)</FormLabel>
                                 <FormControl>
                                   <Input placeholder="Enter your address" {...field} />
                                 </FormControl>
