@@ -223,7 +223,7 @@ export class MemStorage implements IStorage {
   }
 
   // Pre-populate services
-  private initializeServices() {
+  private initializeServices(): InsertService[] {
     const services: InsertService[] = [
       {
         name: "Voter ID Card (EPIC)",
@@ -347,6 +347,7 @@ export class MemStorage implements IStorage {
         badge_color: "green"
       }
     ];
+    return services;
   }
 }
 
