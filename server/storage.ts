@@ -225,6 +225,28 @@ export class MemStorage implements IStorage {
   private initializeServices() {
     const services: InsertService[] = [
       {
+        name: "Aadhaar-PAN Linking",
+        description: "Quick and secure linking of your Aadhaar card with PAN card as per government regulations.",
+        category: "Identity",
+        price: 300,
+        processing_time: "1-2 days",
+        requirements: "Aadhaar card, PAN card",
+        icon: "fa-link",
+        badge: "Mandatory Service",
+        badge_color: "red"
+      },
+      {
+        name: "E-Shram Card",
+        description: "Registration and card generation for unorganized workers under the E-Shram portal.",
+        category: "Employment",
+        price: 200,
+        processing_time: "2-3 days",
+        requirements: "Aadhaar card, bank details, mobile number",
+        icon: "fa-id-badge",
+        badge: "Worker Benefits",
+        badge_color: "green"
+      },
+      {
         name: "Aadhaar Card",
         description: "New applications, corrections, updates and more for your Aadhaar card.",
         category: "Identity",

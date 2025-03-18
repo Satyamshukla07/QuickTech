@@ -41,7 +41,7 @@ export default function HomePage() {
     queryKey: ["/api/services"],
   });
 
-  const featuredServices = services?.slice(0, 4) || [];
+  const featuredServices = services?.slice(0, 8) || [];
 
   return (
     <>
