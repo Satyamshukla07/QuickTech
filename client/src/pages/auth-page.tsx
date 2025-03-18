@@ -130,16 +130,16 @@ export default function AuthPage() {
                             {loginMutation.isPending ? "Logging in..." : "Login"}
                           </Button>
 
-                          <div className="mt-4 text-center">
-                            <a 
-                              href="/auth/google" 
-                              className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
-                            >
-                              <img src="https://www.google.com/favicon.ico" className="w-4 h-4 mr-2" alt="Google" />
-                              Sign in with Google
-                            </a>
-                          </div>
-                        </form>
+                          </form>
+                        <div className="mt-4 text-center">
+                          <a 
+                            href="/auth/google" 
+                            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                          >
+                            <img src="https://www.google.com/favicon.ico" className="w-4 h-4 mr-2" alt="Google" />
+                            Sign in with Google
+                          </a>
+                        </div>
                       </Form>
                     </CardContent>
                   </Card>
