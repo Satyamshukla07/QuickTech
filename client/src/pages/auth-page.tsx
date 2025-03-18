@@ -69,7 +69,7 @@ export default function AuthPage() {
   return (
     <>
       <Navbar />
-      
+
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -82,7 +82,7 @@ export default function AuthPage() {
                     <TabsTrigger value="register">Register</TabsTrigger>
                   </TabsList>
                 </div>
-                
+
                 <TabsContent value="login">
                   <Card>
                     <CardHeader>
@@ -107,7 +107,7 @@ export default function AuthPage() {
                               </FormItem>
                             )}
                           />
-                          
+
                           <FormField
                             control={loginForm.control}
                             name="password"
@@ -121,7 +121,7 @@ export default function AuthPage() {
                               </FormItem>
                             )}
                           />
-                          
+
                           <Button 
                             type="submit" 
                             className="w-full"
@@ -129,12 +129,22 @@ export default function AuthPage() {
                           >
                             {loginMutation.isPending ? "Logging in..." : "Login"}
                           </Button>
+
+                          <div className="mt-4 text-center">
+                            <a 
+                              href="/auth/google" 
+                              className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                            >
+                              <img src="https://www.google.com/favicon.ico" className="w-4 h-4 mr-2" alt="Google" />
+                              Sign in with Google
+                            </a>
+                          </div>
                         </form>
                       </Form>
                     </CardContent>
                   </Card>
                 </TabsContent>
-                
+
                 <TabsContent value="register">
                   <Card>
                     <CardHeader>
@@ -159,7 +169,7 @@ export default function AuthPage() {
                               </FormItem>
                             )}
                           />
-                          
+
                           <FormField
                             control={registerForm.control}
                             name="name"
@@ -173,7 +183,7 @@ export default function AuthPage() {
                               </FormItem>
                             )}
                           />
-                          
+
                           <FormField
                             control={registerForm.control}
                             name="email"
@@ -187,7 +197,7 @@ export default function AuthPage() {
                               </FormItem>
                             )}
                           />
-                          
+
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <FormField
                               control={registerForm.control}
@@ -202,7 +212,7 @@ export default function AuthPage() {
                                 </FormItem>
                               )}
                             />
-                            
+
                             <FormField
                               control={registerForm.control}
                               name="confirmPassword"
@@ -217,7 +227,7 @@ export default function AuthPage() {
                               )}
                             />
                           </div>
-                          
+
                           <FormField
                             control={registerForm.control}
                             name="phone"
@@ -231,7 +241,7 @@ export default function AuthPage() {
                               </FormItem>
                             )}
                           />
-                          
+
                           <FormField
                             control={registerForm.control}
                             name="address"
@@ -245,7 +255,7 @@ export default function AuthPage() {
                               </FormItem>
                             )}
                           />
-                          
+
                           <Button 
                             type="submit" 
                             className="w-full"
@@ -260,20 +270,20 @@ export default function AuthPage() {
                 </TabsContent>
               </Tabs>
             </div>
-            
+
             {/* Right Column - Hero Section */}
             <div className="bg-primary-700 text-white rounded-lg p-8 shadow-xl hidden md:block">
               <div className="flex items-center mb-6">
                 <Bolt className="h-10 w-10 text-orange-500" />
                 <h2 className="text-3xl font-bold ml-2">QuickTech</h2>
               </div>
-              
+
               <h1 className="text-3xl font-bold mb-4">Document Services Made Simple</h1>
               <p className="text-lg mb-6">
                 Join thousands of satisfied customers who trust QuickTech for their document processing needs. 
                 Get started in minutes and let us handle the paperwork for you.
               </p>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center">
                   <div className="bg-primary-600 p-2 rounded-full">
@@ -283,7 +293,7 @@ export default function AuthPage() {
                   </div>
                   <span className="ml-3">Fast processing of all government documents</span>
                 </div>
-                
+
                 <div className="flex items-center">
                   <div className="bg-primary-600 p-2 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -292,7 +302,7 @@ export default function AuthPage() {
                   </div>
                   <span className="ml-3">Secure handling of your personal information</span>
                 </div>
-                
+
                 <div className="flex items-center">
                   <div className="bg-primary-600 p-2 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -301,7 +311,7 @@ export default function AuthPage() {
                   </div>
                   <span className="ml-3">24/7 customer support for assistance</span>
                 </div>
-                
+
                 <div className="flex items-center">
                   <div className="bg-primary-600 p-2 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -315,7 +325,7 @@ export default function AuthPage() {
           </div>
         </div>
       </div>
-      
+
       <Footer />
     </>
   );
