@@ -225,6 +225,116 @@ export class MemStorage implements IStorage {
   private initializeServices() {
     const services: InsertService[] = [
       {
+        name: "Voter ID Card (EPIC)",
+        description: "Apply for new voter ID card or make corrections to existing one",
+        category: "Identity",
+        price: 100,
+        processing_time: "15-20 days",
+        requirements: "Age proof, address proof, photographs",
+        icon: "fa-id-card",
+        badge: "Electoral Document",
+        badge_color: "blue"
+      },
+      {
+        name: "Ration Card",
+        description: "Apply for new ration card or update existing one for PDS benefits",
+        category: "Identity",
+        price: 200,
+        processing_time: "20-30 days",
+        requirements: "Address proof, family details, income certificate",
+        icon: "fa-card-list",
+        badge: "Food Security",
+        badge_color: "green"
+      },
+      {
+        name: "MSME Registration",
+        description: "Register your micro, small, or medium enterprise under MSME",
+        category: "Business",
+        price: 1000,
+        processing_time: "2-3 days",
+        requirements: "Business details, Aadhaar, PAN",
+        icon: "fa-industry",
+        badge: "Business",
+        badge_color: "purple"
+      },
+      {
+        name: "PM Kisan Registration",
+        description: "Register farmers for PM-KISAN scheme benefits",
+        category: "Agriculture",
+        price: 250,
+        processing_time: "7-10 days",
+        requirements: "Land records, Aadhaar, bank details",
+        icon: "fa-tractor",
+        badge: "Farmer Welfare",
+        badge_color: "green"
+      },
+      {
+        name: "MUDRA Loan Assistance",
+        description: "Help with MUDRA loan application for small businesses",
+        category: "Finance",
+        price: 1500,
+        processing_time: "10-15 days",
+        requirements: "Business plan, KYC documents, bank statements",
+        icon: "fa-hand-holding-usd",
+        badge: "Business Loan",
+        badge_color: "blue"
+      },
+      {
+        name: "Police Verification",
+        description: "Police verification certificate for employment/passport",
+        category: "Legal",
+        price: 500,
+        processing_time: "7-10 days",
+        requirements: "ID proof, address proof, photographs",
+        icon: "fa-shield-alt",
+        badge: "Verification",
+        badge_color: "red"
+      },
+      {
+        name: "Birth Certificate",
+        description: "Apply for birth certificate or get duplicate copy",
+        category: "Identity",
+        price: 300,
+        processing_time: "5-7 days",
+        requirements: "Hospital records, parents' IDs",
+        icon: "fa-baby",
+        badge: "Essential",
+        badge_color: "green"
+      },
+      {
+        name: "Death Certificate",
+        description: "Apply for death certificate registration",
+        category: "Legal",
+        price: 300,
+        processing_time: "3-5 days",
+        requirements: "Death memo, deceased's ID",
+        icon: "fa-scroll",
+        badge: "Essential",
+        badge_color: "gray"
+      },
+      {
+        name: "Disability Certificate",
+        description: "Medical certification for persons with disabilities",
+        category: "Healthcare",
+        price: 200,
+        processing_time: "10-15 days",
+        requirements: "Medical records, photographs, ID proof",
+        icon: "fa-wheelchair",
+        badge: "Priority",
+        badge_color: "blue"
+      },
+      {
+        name: "Senior Citizen Card",
+        description: "ID card for senior citizens with special benefits",
+        category: "Identity",
+        price: 100,
+        processing_time: "5-7 days",
+        requirements: "Age proof, address proof, photographs",
+        icon: "fa-user",
+        badge: "Senior Benefits",
+        badge_color: "purple"
+      },
+      {
         name: "Aadhaar-PAN Linking",
         description: "Quick and secure linking of your Aadhaar card with PAN card as per government regulations.",
         category: "Identity",
