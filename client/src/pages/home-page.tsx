@@ -41,7 +41,10 @@ export default function HomePage() {
     queryKey: ["/api/services"],
   });
 
-  const featuredServices = services?.slice(0, 8) || [];
+  const featuredServices = services?.filter(service => 
+    ['Aadhaar Card', 'PAN Card', 'Income Certificate', 'Domicile Certificate', 'Birth Certificate', 'Passport', 'Marriage Certificate', 'GST Registration']
+    .includes(service.name)
+  ) || [];
 
   return (
     <>
