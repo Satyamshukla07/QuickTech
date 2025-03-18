@@ -132,8 +132,13 @@ export class MemStorage implements IStorage {
 
   // Service methods
   async getServices(): Promise<Service[]> {
-    const servicesList = this.initializeServices();
-    return servicesList.map(service => this.createService(service));
+    if (this.services.size === 0) {
+      const servicesList = this.initializeServices();
+      for (const service of servicesList) {
+        await this.createService(service);
+      }
+    }
+    return Array.from(this.services.values());
   }
 
   async getServicesByCategory(category: string): Promise<Service[]> {
