@@ -399,6 +399,50 @@ export class MemStorage implements IStorage {
         icon: "fa-briefcase",
         badge: "Business Solutions",
         badge_color: "indigo"
+      },
+      {
+        name: "Domicile Certificate",
+        description: "Obtain residence proof certificate from state government.",
+        category: "Certificates",
+        price: 1500,
+        processing_time: "10-15 days",
+        requirements: "Address proof, identity documents, residence proof",
+        icon: "fa-home",
+        badge: "State Document",
+        badge_color: "purple"
+      },
+      {
+        name: "Income Certificate",
+        description: "Get income certification for various purposes.",
+        category: "Certificates",
+        price: 1200,
+        processing_time: "7-10 days",
+        requirements: "Income proof, identity documents, bank statements",
+        icon: "fa-money-bill",
+        badge: "Income Proof",
+        badge_color: "green"
+      },
+      {
+        name: "Voter ID",
+        description: "Apply for new voter ID or update existing one.",
+        category: "Identity",
+        price: 800,
+        processing_time: "20-30 days",
+        requirements: "Age proof, address proof, photographs",
+        icon: "fa-id-card",
+        badge: "Electoral ID",
+        badge_color: "blue"
+      },
+      {
+        name: "Ration Card",
+        description: "Apply for new ration card or modify existing one.",
+        category: "Identity",
+        price: 1000,
+        processing_time: "15-20 days",
+        requirements: "Family details, income proof, address proof",
+        icon: "fa-card-list",
+        badge: "Essential Document",
+        badge_color: "orange"
       }
     ];
 

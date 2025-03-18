@@ -1,5 +1,6 @@
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
+import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import { Express } from "express";
 import session from "express-session";
 import { scrypt, randomBytes, timingSafeEqual } from "crypto";
@@ -46,6 +47,46 @@ export function setupAuth(app: Express) {
   app.use(session(sessionSettings));
   app.use(passport.initialize());
   app.use(passport.session());
+
+  // Configure Google OAuth strategy
+  passport.use(new GoogleStrategy({
+    clientID: process.env.GOOGLE_CLIENT_ID || '',
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+    callbackURL: "/auth/google/callback"
+  },
+  async (accessToken, refreshToken, profile, done) => {
+    try {
+      let user = await storage.getUserByEmail(profile.emails?.[0]?.value || '');
+      
+      if (!user) {
+        // Create new user from Google profile
+        user = await storage.createUser({
+          username: profile.emails?.[0]?.value.split('@')[0] || '',
+          email: profile.emails?.[0]?.value || '',
+          name: profile.displayName,
+          password: randomBytes(32).toString('hex'), // Random password for OAuth users
+          phone: '',
+          address: ''
+        });
+      }
+      
+      return done(null, user);
+    } catch (error) {
+      return done(error as Error);
+    }
+  }));
+
+  // Google OAuth routes
+  app.get('/auth/google',
+    passport.authenticate('google', { scope: ['profile', 'email'] })
+  );
+
+  app.get('/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    (req, res) => {
+      res.redirect('/dashboard');
+    }
+  );
 
   // Configure local strategy
   passport.use(
@@ -96,10 +137,10 @@ export function setupAuth(app: Express) {
       // Remove password from response
       const { password, ...userWithoutPassword } = user;
 
-      // Log user in automatically
-      req.login(user, (err) => {
-        if (err) return next(err);
-        res.status(201).json(userWithoutPassword);
+      // Return success without logging in
+      res.status(201).json({ 
+        message: "Registration successful. Please login to continue.",
+        user: userWithoutPassword 
       });
     } catch (error) {
       next(error);
