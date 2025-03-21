@@ -272,19 +272,19 @@ export default function AuthPage() {
             </div>
 
             {/* Right Column - Hero Section */}
-            <div className="bg-primary-700 text-white rounded-lg p-8 shadow-xl hidden md:block">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-800 text-white rounded-lg p-8 shadow-xl hidden md:block">
               <div className="flex items-center mb-6">
-                <Bolt className="h-10 w-10 text-orange-500" />
+                <Bolt className="h-10 w-10 text-yellow-400" />
+                 {/* Brightened the icon color for better contrast */}
                 <h2 className="text-3xl font-bold ml-2">QuickTech</h2>
               </div>
 
-              <h1 className="text-3xl font-bold mb-4">Document Services Made Simple</h1>
-              <p className="text-lg mb-6">
-                Join thousands of satisfied customers who trust QuickTech for their document processing needs. 
-                Get started in minutes and let us handle the paperwork for you.
+              <h1 className="text-4xl font-bold mb-6 text-yellow-300">Document Services Made Simple</h1>
+              <p className="text-lg mb-8 leading-relaxed">
+              Join thousands of satisfied customers who trust <span className="font-bold text-blue-300">QuickTech</span> for their document processing needs. 
+               Get started in minutes and let us handle the paperwork for you.
               </p>
-
-              <div className="space-y-4">
+              <div className="space-y-5">
                 <div className="flex items-center">
                   <div className="bg-primary-600 p-2 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
