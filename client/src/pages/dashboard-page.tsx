@@ -49,6 +49,7 @@ import FileUpload from "@/components/order/file-upload";
 import { Loader2, FileText, AlertCircle, Clock, Search, Plus } from "lucide-react";
 
 import ReferralCard from "@/components/referral/referral-card";
+import ProfileCard from "@/components/profile/profile-card";
 
 
 export default function DashboardPage() {
@@ -203,6 +204,7 @@ export default function DashboardPage() {
               <TabsTrigger value="orders">My Orders</TabsTrigger>
               <TabsTrigger value="new-order">New Order</TabsTrigger>
               <TabsTrigger value="referrals">Referrals</TabsTrigger>
+              <TabsTrigger value="profile">Profile</TabsTrigger>
             </TabsList>
 
             <TabsContent value="orders">
@@ -396,6 +398,9 @@ export default function DashboardPage() {
             </TabsContent>
             <TabsContent value="referrals">
               <ReferralCard />
+            </TabsContent>
+            <TabsContent value="profile">
+              <ProfileCard />
             </TabsContent>
           </Tabs>
         </div>
