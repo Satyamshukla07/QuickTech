@@ -48,18 +48,7 @@ import {
 import FileUpload from "@/components/order/file-upload";
 import { Loader2, FileText, AlertCircle, Clock, Search, Plus } from "lucide-react";
 
-// Placeholder component - needs implementation
-function ReferralCard() {
-  return <Card>
-    <CardHeader>
-      <CardTitle>My Referrals</CardTitle>
-    </CardHeader>
-    <CardContent>
-      {/* Referral data will go here */}
-      <p>Referral system not yet implemented.</p>
-    </CardContent>
-  </Card>
-}
+import ReferralCard from "@/components/referral/referral-card";
 
 
 export default function DashboardPage() {
