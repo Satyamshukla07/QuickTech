@@ -48,6 +48,20 @@ import {
 import FileUpload from "@/components/order/file-upload";
 import { Loader2, FileText, AlertCircle, Clock, Search, Plus } from "lucide-react";
 
+// Placeholder component - needs implementation
+function ReferralCard() {
+  return <Card>
+    <CardHeader>
+      <CardTitle>My Referrals</CardTitle>
+    </CardHeader>
+    <CardContent>
+      {/* Referral data will go here */}
+      <p>Referral system not yet implemented.</p>
+    </CardContent>
+  </Card>
+}
+
+
 export default function DashboardPage() {
   const { user } = useAuth();
   const [location, navigate] = useLocation();
@@ -57,7 +71,7 @@ export default function DashboardPage() {
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [orderNotes, setOrderNotes] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   // Get service ID from query string if present
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -174,7 +188,7 @@ export default function DashboardPage() {
   return (
     <>
       <Navbar />
-      
+
       <div className="bg-gray-50 min-h-screen py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between mb-8 items-start md:items-center gap-4">
@@ -182,7 +196,7 @@ export default function DashboardPage() {
               <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
               <p className="text-gray-600 mt-1">Welcome back, {user.name}</p>
             </div>
-            
+
             <Button 
               onClick={() => {
                 setSelectedTab("new-order");
@@ -199,8 +213,9 @@ export default function DashboardPage() {
             <TabsList className="mb-8">
               <TabsTrigger value="orders">My Orders</TabsTrigger>
               <TabsTrigger value="new-order">New Order</TabsTrigger>
+              <TabsTrigger value="referrals">Referrals</TabsTrigger>
             </TabsList>
-            
+
             <TabsContent value="orders">
               <Card>
                 <CardHeader>
@@ -277,7 +292,7 @@ export default function DashboardPage() {
                 </CardContent>
               </Card>
             </TabsContent>
-            
+
             <TabsContent value="new-order">
               <Card>
                 <CardHeader>
@@ -349,7 +364,7 @@ export default function DashboardPage() {
                             Select a service to see required documents
                           </p>
                         )}
-                        
+
                         <FileUpload
                           onFilesChange={handleFileChange}
                           files={uploadedFiles}
@@ -390,6 +405,9 @@ export default function DashboardPage() {
                 </CardContent>
               </Card>
             </TabsContent>
+            <TabsContent value="referrals">
+              <ReferralCard />
+            </TabsContent>
           </Tabs>
         </div>
       </div>
@@ -403,7 +421,7 @@ export default function DashboardPage() {
               Select the document service you need assistance with
             </DialogDescription>
           </DialogHeader>
-          
+
           {isServicesLoading ? (
             <div className="flex justify-center py-8">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -433,7 +451,7 @@ export default function DashboardPage() {
                   </div>
                 ))}
               </div>
-              
+
               <DialogFooter>
                 <Button
                   variant="outline"
@@ -455,7 +473,7 @@ export default function DashboardPage() {
           )}
         </DialogContent>
       </Dialog>
-      
+
       <Footer />
     </>
   );

@@ -29,7 +29,13 @@ export async function comparePasswords(supplied: string, stored: string) {
   return timingSafeEqual(hashedBuf, suppliedBuf);
 }
 
-export function setupAuth(app: Express) {
+import { randomBytes } from 'crypto';
+
+function generateReferralCode(): string {
+  return randomBytes(4).toString('hex').toUpperCase();
+}
+
+export async function setupAuth(app: Express) {
   // Set up session
   const sessionSecret = process.env.SESSION_SECRET || 'quicktech-secret-key';
   const sessionSettings: session.SessionOptions = {
@@ -58,7 +64,7 @@ export function setupAuth(app: Express) {
   async (accessToken, refreshToken, profile, done) => {
     try {
       let user = await storage.getUserByEmail(profile.emails?.[0]?.value || '');
-      
+
       if (!user) {
         // Create new user from Google profile
         user = await storage.createUser({
@@ -67,10 +73,13 @@ export function setupAuth(app: Express) {
           name: profile.displayName,
           password: randomBytes(32).toString('hex'), // Random password for OAuth users
           phone: '',
-          address: ''
+          address: '',
+          referral_code: generateReferralCode(), //added referral code generation
+          referred_by: null, //added referred_by field
+          referral_rewards: 0 //added referral reward field
         });
       }
-      
+
       return done(null, user);
     } catch (error) {
       return done(error as Error);
@@ -129,11 +138,32 @@ export function setupAuth(app: Express) {
         return res.status(400).json({ message: "Email already exists" });
       }
 
-      // Create user with hashed password
+      const username = req.body.username;
+      const hashedPassword = await hashPassword(req.body.password);
+      const name = req.body.name;
+      const email = req.body.email;
+      const phone = req.body.phone;
+      const address = req.body.address;
+
+      const referral_code = generateReferralCode();
+      const referredBy = req.body.referralCode ? 
+        await storage.getUserByReferralCode(req.body.referralCode) : null;
+
       const user = await storage.createUser({
-        ...req.body,
-        password: await hashPassword(req.body.password),
+        username,
+        password: hashedPassword,
+        name,
+        email,
+        phone,
+        address,
+        referral_code,
+        referred_by: referredBy?.id,
+        referral_rewards: 0,
       });
+
+      if (referredBy) {
+        await storage.incrementReferralReward(referredBy.id, 100); // ₹100 reward per referral
+      }
 
       // Remove password from response
       const { password, ...userWithoutPassword } = user;

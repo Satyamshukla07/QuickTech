@@ -12,6 +12,9 @@ export const users = pgTable("users", {
   phone: text("phone"),
   address: text("address"),
   role: text("role").notNull().default("user"),
+  referral_code: text("referral_code").unique(),
+  referred_by: integer("referred_by").references(() => users.id),
+  referral_rewards: integer("referral_rewards").default(0),
   created_at: timestamp("created_at").defaultNow().notNull(),
 });
 
